@@ -87,6 +87,7 @@
             </div>
             <div ng-app ng-init="checked = false">
                 <form class="form-signin" action="" method="post" name="form"> 
+                    <div class="signInMessage" class="messageDiv" style="display: none;"></div>
                     <label for="username">Fullname</label>
                     <input class="form-styling" type="text" id="fullname" name="fullname" placeholder="" /> 
 
@@ -97,6 +98,7 @@
                     <div><a id="google-login-btn" class="btn-signin">Login with Google</a></div>
                 </form>
                 <form class="form-signup" action="" method="post" name="form">
+                    <div class="signUpMessage" class="messageDiv" style="display: none;"></div>
                     <label for="fullname">Full name</label>
                     <input class="form-styling" type="text" id="fullname" name="fullname" placeholder="" />
 
@@ -112,7 +114,7 @@
                     <label for="confirm-password">Confirm password</label> 
                     <input class="form-styling" type="password" id="confirm-password" name="confirm-password" placeholder="" /> 
 
-                    <a ng-click="checked = !checked" class="btn-signup" onclick="register()">REGISTER</a>
+                    <a ng-click="checked = !checked" class="btn-signup" id="register">REGISTER</a>
                 </form>
                 <div class="success">
                         <div class="successtext">
