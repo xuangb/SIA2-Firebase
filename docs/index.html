@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+   <!--- basic page needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>DEVELO4</title>
+	<meta name="description" content="">  
+	<meta name="author" content="">
+
+   <!-- mobile specific metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+ 	<!-- CSS
+   ================================================== -->
+   <link rel="stylesheet" href="resources/css/base.css">  
+   <link rel="stylesheet" href="resources/css/main.css">
+
+   <!-- script
+   ================================================== -->   
+    <!-- Firebase App (Core) SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js"></script>
+  <!-- Firebase Analytics SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js"></script>
+   <!-- Firebase App (Core) SDK -->
+   <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js"></script>
+   <script src="resources/js/index.js"></script>
+   
+	<script src="resources/js/modernizr.js"></script>
+	<script src="resources/js/pace.min.js"></script>
+    
+
+   <!-- favicons 
+	================================================== -->
+	<link rel="icon" type="image/png" href="resources/images/logo.png">
+
+</head>
+
+<body id="top">
+	<!-- intro section
+   ================================================== -->
+   <section id="intro">   
+
+    <div class="intro-overlay"></div>	
+
+    <div class="intro-content">
+        <div class="row">
+
+            <div class="col-twelve">
+
+                <h5>Hello, "".</h5>
+                <h1>WE ARE TEAM DEVELO4.</h1>
+
+                <p class="intro-position">
+                    <span>JOHN FREDERICK D. GELAY</span>
+                    <span>JOSHUA A. BELANDRES</span>
+                 <span>ZENAIDA C. BELANDRES</span>
+                    <span>ANGEBON M. REYES</span> 
+                </p>
+
+                <a class="button stroke smoothscroll" href="#about" title="">More About US</a>
+
+            </div>  
+            
+        </div>   		 		
+    </div> <!-- /intro-content --> 
+
+    <ul class="intro-social">        
+      <li><a href="https://www.facebook.com/johnfrederick.gelay"><i class="fa fa-facebook"></i></a></li>
+   </ul> <!-- /intro-social -->      	
+
+</section> <!-- /intro -->
+
+<section id="about">  
+    <div class="row section-intro">
+   		<h1>LOG IN TO SEE OUR WEBSITE</h1>
+        <h5>Much more awaits after you enter our website</h5>
+    <div class="container">
+        <div class="frame">
+            <div class="nav">
+                <ul class="links">
+                    <li class="signin-active"><a class="btn">Existing User</a></li>
+                    <li class="signup-inactive"><a class="btn">New User</a></li>
+                </ul>
+            </div>
+            <div ng-app ng-init="checked = false">
+                <form class="form-signin" action="" method="post" name="form"> 
+                    <label for="username">Fullname</label>
+                    <input class="form-styling" type="text" id="fullname" name="fullname" placeholder="" /> 
+
+                    <label for="password">Password</label>
+                    <input class="form-styling" type="text" name="password" placeholder="" />
+
+                    <div class="btn-animate"> <a class="btn-signin">Login to your account</a> </div>
+                    <div><a id="google-login-btn" class="btn-signin">Login with Google</a></div>
+                </form>
+                <form class="form-signup" action="" method="post" name="form">
+                    <label for="fullname">Full name</label>
+                    <input class="form-styling" type="text" id="fullname" name="fullname" placeholder="" />
+
+                    <label for="email">Email</label>
+                    <input class="form-styling" type="email" id="email" name="email" placeholder="" />
+
+                    <label for="number">Phone Number</label>
+                    <input class="form-styling" type="tel" id="tel" name="phoneNumber" pattern="[0-9]{10}" placeholder="" />
+
+                    <label for="password">Enter Password</label> 
+                    <input class="form-styling" type="password" id="password" name="password" placeholder="" /> 
+
+                    <label for="confirm-password">Confirm password</label> 
+                    <input class="form-styling" type="password" id="confirm-password" name="confirm-password" placeholder="" /> 
+
+                    <a ng-click="checked = !checked" class="btn-signup" onclick="register()">REGISTER</a>
+                </form>
+                <div class="success">
+                        <div class="successtext">
+                            <p> New User registered, Kindly check your email for confirmation.</p>
+                        </div>
+                </div>
+            </div>
+            <!-- <div class="forgot"> <a href="#">Forgot your password?</a> </div> -->
+            <div class="register-container">
+                <div class="cover-photo"></div>
+                <h1 class="welcome">Welcome</h1>
+                <a class="btn-goback" >Enter Website</a>
+                <div class="profile-photo"></div>
+                
+            </div>
+        </div>
+   </section> <!-- /intro -->
+
+   <!-- footer
+   ================================================== -->
+
+   <footer>
+     	<div class="row">
+
+     		<div class="col-six tab-full pull-right social">
+
+     			<ul class="footer-social">        
+			      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+			      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+			      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+			   </ul> 
+	      		
+	      </div>
+
+      	<div class="col-six tab-full">
+
+	      	<div id="go-top">
+		         <a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-long-arrow-up"></i></a>
+		      </div>
+
+      	</div> <!-- /row -->     	
+   </footer>  
+
+   <div id="preloader"> 
+    	<div id="loader"></div>
+   </div> 
+
+   <!-- Java Script
+   ================================================== --> 
+   <script src="resources/js/jquery-2.1.3.min.js"></script>
+   <script src="resources/js/plugins.js"></script>
+   <script src="resources/js/main.js"></script>
+
+   <script>
+$(function() {
+    $(".btn").click(function() {
+        const isSignInActive = $(".signin-active").length > 0;
+
+        // Toggle form classes based on current state
+        if (isSignInActive) {
+            $(".form-signin").addClass("form-signin-left");
+            $(".form-signup").addClass("form-signup-left");
+            $(".signin-active").removeClass("signin-active").addClass("signin-inactive");
+            $(".signup-inactive").removeClass("signup-inactive").addClass("signup-active");
+        } else {
+            $(".form-signin").removeClass("form-signin-left");
+            $(".form-signup").removeClass("form-signup-left");
+            $(".signup-active").removeClass("signup-active").addClass("signup-inactive");
+            $(".signin-inactive").removeClass("signin-inactive").addClass("signin-active");
+        }
+
+        // Toggle forgot-password and frame classes
+        $(".forgot").toggleClass("forgot-left");
+        $(".frame").toggleClass("frame-long");
+
+        // Toggle button active state
+        $(".btn").removeClass("active");
+        $(this).addClass("active");
+    });
+});
+
+    $(function() {
+
+        $(".btn-signup").click(function() {
+            $(".nav").toggleClass("nav-up");
+            $(".form-signup-left").toggleClass("form-signup-down");
+            $(".success").toggleClass("success-left");
+            $(".frame").toggleClass("frame-short");
+        });
+    });
+
+    $(function() {
+        $(".btn-signin").click(function() {
+            $(".btn-animate").toggleClass("btn-animate-grow");
+            $(".welcome").toggleClass("welcome-left");
+            $(".cover-photo").toggleClass("cover-photo-down");
+            $(".frame").toggleClass("frame-short");
+            $(".profile-photo").toggleClass("profile-photo-down");
+            $(".btn-goback").toggleClass("btn-goback-up");
+            $(".forgot").toggleClass("forgot-fade");
+        });
+    });
+   </script>
+
+</body>
+
+</html>
