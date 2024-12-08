@@ -43,7 +43,7 @@ signUp.addEventListener('click',(event)=>{
   const confirmPassword = document.getElementById("signUp-confirm-password").value;
 
   const auth = getAuth();
-  const db = getFirestore();
+  const db = getFirestore(app);
 
   // Validate inputs
   if (!validate_email(email)) {
@@ -79,7 +79,7 @@ signUp.addEventListener('click',(event)=>{
       last_login: Date.now(),
       role: "user",
     };
-    
+
     setDoc(doc(db, "users", user.uid), userData)
       .then(() => {
         showMessage("Account Created Successfully", "signUpMessage");
