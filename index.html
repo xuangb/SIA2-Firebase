@@ -26,7 +26,7 @@
   <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js"></script>
    <!-- Firebase App (Core) SDK -->
    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js"></script>
-   <script src="resources/js/index.js"></script>
+   <script  type="module"  src="resources/js/index.js"></script>
    
 	<script src="resources/js/modernizr.js"></script>
 	<script src="resources/js/pace.min.js"></script>
@@ -89,30 +89,32 @@
                 <form class="form-signin" action="" method="post" name="form"> 
                     <div class="signInMessage" class="messageDiv" style="display: none;"></div>
                     <label for="username">Fullname</label>
-                    <input class="form-styling" type="text" id="fullname" name="fullname" placeholder="" /> 
+                    <input class="form-styling" type="text" id="signIn-fullname" name="fullname" placeholder="" /> 
 
                     <label for="password">Password</label>
-                    <input class="form-styling" type="text" name="password" placeholder="" />
+                    <input class="form-styling" type="text" name="signIn-password" placeholder="" />
 
                     <div class="btn-animate"> <a class="btn-signin">Login to your account</a> </div>
                     <div><a id="google-login-btn" class="btn-signin">Login with Google</a></div>
                 </form>
+
                 <form class="form-signup" action="" method="post" name="form">
                     <div class="signUpMessage" class="messageDiv" style="display: none;"></div>
+
                     <label for="fullname">Full name</label>
-                    <input class="form-styling" type="text" id="fullname" name="fullname" placeholder="" />
+                    <input class="form-styling" type="text" id="signUp-fullname" name="fullname" placeholder="" />
 
                     <label for="email">Email</label>
-                    <input class="form-styling" type="email" id="email" name="email" placeholder="" />
+                    <input class="form-styling" type="email" id="signUp-email" name="email" placeholder="" />
 
                     <label for="number">Phone Number</label>
-                    <input class="form-styling" type="tel" id="tel" name="phoneNumber" pattern="[0-9]{10}" placeholder="" />
+                    <input class="form-styling" type="tel" id="signUp-phoneNumber" name="phoneNumber" pattern="[0-9]{10}" placeholder="" />
 
                     <label for="password">Enter Password</label> 
-                    <input class="form-styling" type="password" id="password" name="password" placeholder="" /> 
+                    <input class="form-styling" type="password" id="signUp-password" name="password" placeholder="" /> 
 
                     <label for="confirm-password">Confirm password</label> 
-                    <input class="form-styling" type="password" id="confirm-password" name="confirm-password" placeholder="" /> 
+                    <input class="form-styling" type="password" id="signUp-confirm-password" name="confirm-password" placeholder="" /> 
 
                     <a ng-click="checked = !checked" class="btn-signup" id="register">REGISTER</a>
                 </form>

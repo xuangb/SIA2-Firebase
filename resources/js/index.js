@@ -35,11 +35,11 @@ function showMessage(message, elementId) {
 const signUp = document.getElementById("register");
 signUp.addEventListener('click',(event)=>{
   event.preventDefault();
-  const fullname = document.getElementById("fullname").value;
-  const email = document.getElementById("email").value;
-  const phoneNumber = document.getElementById("phoneNumber").value; // Corrected this line
-  const password = document.getElementById("password").value;
-  const confirmPassword = document.getElementById("confirm-password").value;
+  const fullname = document.getElementById("signUp-fullname").value;
+  const email = document.getElementById("signUp-email").value;
+  const phoneNumber = document.getElementById("signUp-phoneNumber").value; // Corrected this line
+  const password = document.getElementById("signUp-password").value;
+  const confirmPassword = document.getElementById("signUp-confirm-password").value;
 
   const auth = getAuth();
   const db = getFirestore();
