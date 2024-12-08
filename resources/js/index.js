@@ -79,16 +79,16 @@ signUp.addEventListener('click',(event)=>{
       last_login: Date.now(),
       role: "user",
     };
-    showMessage("Account Created Successfully", "signUpMessage");
-
-    const docRef = doc(db,"users", user.uid);
-    setDoc(docRef, userData)
-    .then(()=>{
-      window.location.href = "/userpage.html";
-    })
-    .catch((error)=>{
-      console.log("Error writing document");
-    });
+    
+    setDoc(doc(db, "users", user.uid), userData)
+      .then(() => {
+        showMessage("Account Created Successfully", "signUpMessage");
+        window.location.href = "/userpage.html";
+      })
+      .catch((error) => {
+        console.error("Error writing document: ", error);
+        showMessage("Error creating account", "signUpMessage", 'error');
+      });
 
 
   })
