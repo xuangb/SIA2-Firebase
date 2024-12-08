@@ -5,7 +5,8 @@
  import {getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
  // TODO: Add SDKs for Firebase products that you want to use
  // https://firebase.google.com/docs/web/setup#available-libraries
-
+ import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+ setLogLevel("debug");
  // Your web app's Firebase configuration
  const firebaseConfig = {
    apiKey: "AIzaSyDjh1vEFk7FqW-wLaUE4pXowHf266_3W88",
