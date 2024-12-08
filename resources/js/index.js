@@ -23,7 +23,7 @@ const app = initializeApp(firebaseConfig);
 
 function showMessage(message, elementId) {
   var message = document.getElementById(elementId);
-  message.style.display='block';
+  message.style.display='block'; 
   message.innerHTML = message;
   message.style.opacity = 1;
   setTimeout(function(){
@@ -70,8 +70,8 @@ signUp.addEventListener('click',(event)=>{
 
 
   createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredentials)=>{
-    const user = userCredentials.user;
+  .then((userCredential)=>{
+    const user = userCredential.user;
     const userData = {
       email: email,
       fullname: fullname,
