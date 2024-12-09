@@ -9,12 +9,13 @@
  setLogLevel("debug");
  // Your web app's Firebase configuration
  const firebaseConfig = {
-   apiKey: "AIzaSyDjh1vEFk7FqW-wLaUE4pXowHf266_3W88",
-   authDomain: "sia-2develo4.firebaseapp.com",
-   projectId: "sia-2develo4",
-   storageBucket: "sia-2develo4.firebasestorage.app",
-   messagingSenderId: "853876043675",
-   appId: "1:853876043675:web:58e9a688aeef18690f3b3e"
+   "apiKey": "AIzaSyDjh1vEFk7FqW-wLaUE4pXowHf266_3W88",
+   "authDomain": "sia-2develo4.firebaseapp.com",
+   "projectId": "sia-2develo4",
+   "storageBucket": "sia-2develo4.firebasestorage.app",
+   "messagingSenderId": "853876043675",
+   "appId": "1:853876043675:web:58e9a688aeef18690f3b3e",
+   "databaseURL": "https://sia-2develo4-default-rtdb.firebaseio.com"
  };
 
  // Initialize Firebase
@@ -32,7 +33,6 @@ function showMessage(message, elementId) {
   
 }
 
-
 const signUp = document.getElementById("register");
 signUp.addEventListener('click',(event)=>{
   event.preventDefault();
@@ -43,7 +43,7 @@ signUp.addEventListener('click',(event)=>{
   const confirmPassword = document.getElementById("signUp-confirm-password").value;
 
   const auth = getAuth();
-  const db = getFirestore(app);
+  const db = getFirestore();
 
   // Validate inputs
   if (!validate_email(email)) {
@@ -80,15 +80,15 @@ signUp.addEventListener('click',(event)=>{
       role: "user",
     };
 
-    setDoc(doc(db, "users", user.uid), userData)
-      .then(() => {
-        showMessage("Account Created Successfully", "signUpMessage");
-        window.location.href = "/userpage.html";
-      })
-      .catch((error) => {
-        console.error("Error writing document: ", error);
-        showMessage("Error creating account", "signUpMessage", 'error');
-      });
+    const docRef = doc(db,"users", user.uid);
+    setDoc(docRef, userData)
+    .then(()=>{
+      alert("Account Created Successfully");
+      window.location.href = "/userpage.html";
+    })
+    .catch((error)=>{
+      console.log("Error writing document",error);
+    });
 
 
   })
