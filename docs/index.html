@@ -17,7 +17,7 @@
    ================================================== -->
    <link rel="stylesheet" href="resources/css/base.css">  
    <link rel="stylesheet" href="resources/css/main.css">
-
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
    <script type="module" src="resources/js/index.js"></script>
    
 	<script src="resources/js/modernizr.js"></script>
@@ -66,65 +66,79 @@
 </section> <!-- /intro -->
 
 <section id="about">  
-    <div class="row section-intro">
-   		<h1>LOG IN TO SEE OUR WEBSITE</h1>
-        <h5>Much more awaits after you enter our website</h5>
-    <div class="container">
-        <div class="frame">
-            <div class="nav">
-                <ul class="links">
-                    <li class="signin-active"><a class="btn">Existing User</a></li>
-                    <li class="signup-inactive"><a class="btn">New User</a></li>
-                </ul>
-            </div>
-            <div ng-app ng-init="checked = false">
-                <form class="form-signin" action="" method="post" name="form"> 
-                    <div class="signInMessage" class="messageDiv" style="display: none;"></div>
-                    <label for="username">Email</label>
-                    <input class="form-styling" type="email" id="signIn-fullname" name="signIn-email" placeholder="" /> 
-
-                    <label for="password">Password</label>
-                    <input class="form-styling" type="text" name="signIn-password" placeholder="" />
-
-                    <div class="btn-animate"> <a class="btn-signin" id="login">Login to your account</a> </div>
-                    <div><a id="google-login-btn" class="btn-signin">Login with Google</a></div>
-                </form>
-
-                <form class="form-signup" action="" method="post" name="form">
-                    <div class="signUpMessage" class="messageDiv" style="display: none;"></div>
-
-                    <label for="fullname">Full name</label>
-                    <input class="form-styling" type="text" id="signUp-fullname" name="fullname" placeholder="" />
-
-                    <label for="email">Email</label>
-                    <input class="form-styling" type="email" id="signUp-email" name="email" placeholder="" />
-
-                    <label for="number">Phone Number</label>
-                    <input class="form-styling" type="tel" id="signUp-phoneNumber" name="phoneNumber" pattern="[0-9]{10}" placeholder="" />
-
-                    <label for="password">Enter Password</label> 
-                    <input class="form-styling" type="password" id="signUp-password" name="password" placeholder="" /> 
-
-                    <label for="confirm-password">Confirm password</label> 
-                    <input class="form-styling" type="password" id="signUp-confirm-password" name="confirm-password" placeholder="" /> 
-
-                    <a ng-click="checked = !checked" class="btn-signup" id="register">REGISTER</a>
-                </form>
-                <div class="success">
-                        <div class="successtext">
-                            <p> New User registered, Kindly check your email for confirmation.</p>
-                        </div>
+    <div class="auth-container">
+        <div class="container">
+            <input type="checkbox" id="flip">
+            <div class="cover">
+                <div class="front">
+                    <img src="resources/images/frontImg.jpg" alt="">
+                    <div class="text">
+                        <span class="text-1">Every new connection is a <br> new learning opportunity</span>
+                        <span class="text-2">Let's get connected</span>
+                    </div>
+                </div>
+                <div class="back">
+                    <img class="backImg" src="resources/images/backImg.jpg" alt="">
+                    <div class="text">
+                        <span class="text-1">Bridge the gap <br> in one stride</span>
+                        <span class="text-2">Let's get started</span>
+                    </div>
                 </div>
             </div>
-            <!-- <div class="forgot"> <a href="#">Forgot your password?</a> </div> -->
-            <div class="register-container">
-                <div class="cover-photo"></div>
-                <h1 class="welcome">Welcome</h1>
-                <a class="btn-goback" >Enter Website</a>
-                <div class="profile-photo"></div>
-                
+            <div class="forms">
+                <div class="form-content">
+                    <div class="login-form">
+                        <div class="title">Login</div>
+                        <form id="login-form">
+                            <div class="input-boxes">
+                                <div class="input-box">
+                                    <i class="fas fa-envelope"></i>
+                                    <input id="login-email" type="text" placeholder="Enter your email" required>
+                                </div>
+                                <div class="input-box">
+                                    <i class="fas fa-lock"></i>
+                                    <input id="login-password" type="password" placeholder="Enter your password" required>
+                                </div>
+                                <div class="text"><a href="#">Forgot password?</a></div>
+                                <div class="button input-box">
+                                    <input type="submit" value="Login">
+                                </div>
+                                <div class="text sign-up-text">Don't have an account? <label for="flip">Signup now</label></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-form">
+                        <div class="title">Signup</div>
+                        <form id="signup-form">
+                            <div class="input-boxes">
+                                <div class="input-box">
+                                    <i class="fas fa-user"></i>
+                                    <input id="signup-name" type="text" placeholder="Enter your name" required>
+                                </div>
+                                <div class="input-box">
+                                    <i class="fas fa-envelope"></i>
+                                    <input id="signup-email" type="text" placeholder="Enter your email" required>
+                                </div>
+                                <div class="input-box">
+                                    <i class="fas fa-lock"></i>
+                                    <input id="signup-password" type="password" placeholder="Enter your password" required>
+                                </div>
+                                <div class="input-box">
+                                    <i class="fas fa-lock"></i>
+                                    <input id="signup-confirm-password" type="password" placeholder="Confirm password" required>
+                                </div>
+                                <div class="button input-box">
+                                    <input type="submit" value="Signup">
+                                </div>
+                                <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+    
    </section> <!-- /intro -->
 
    <!-- footer
@@ -163,54 +177,7 @@
    <script src="resources/js/main.js"></script>
 
    <script>
-$(function() {
-    $(".btn").click(function() {
-        const isSignInActive = $(".signin-active").length > 0;
 
-        // Toggle form classes based on current state
-        if (isSignInActive) {
-            $(".form-signin").addClass("form-signin-left");
-            $(".form-signup").addClass("form-signup-left");
-            $(".signin-active").removeClass("signin-active").addClass("signin-inactive");
-            $(".signup-inactive").removeClass("signup-inactive").addClass("signup-active");
-        } else {
-            $(".form-signin").removeClass("form-signin-left");
-            $(".form-signup").removeClass("form-signup-left");
-            $(".signup-active").removeClass("signup-active").addClass("signup-inactive");
-            $(".signin-inactive").removeClass("signin-inactive").addClass("signin-active");
-        }
-
-        // Toggle forgot-password and frame classes
-        $(".forgot").toggleClass("forgot-left");
-        $(".frame").toggleClass("frame-long");
-
-        // Toggle button active state
-        $(".btn").removeClass("active");
-        $(this).addClass("active");
-    });
-});
-
-    $(function() {
-
-        $(".btn-signup").click(function() {
-            $(".nav").toggleClass("nav-up");
-            $(".form-signup-left").toggleClass("form-signup-down");
-            $(".success").toggleClass("success-left");
-            $(".frame").toggleClass("frame-short");
-        });
-    });
-
-    $(function() {
-        $(".btn-signin").click(function() {
-            $(".btn-animate").toggleClass("btn-animate-grow");
-            $(".welcome").toggleClass("welcome-left");
-            $(".cover-photo").toggleClass("cover-photo-down");
-            $(".frame").toggleClass("frame-short");
-            $(".profile-photo").toggleClass("profile-photo-down");
-            $(".btn-goback").toggleClass("btn-goback-up");
-            $(".forgot").toggleClass("forgot-fade");
-        });
-    });
    </script>
 
 </body>

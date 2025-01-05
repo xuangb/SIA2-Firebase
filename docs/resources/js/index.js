@@ -1,26 +1,25 @@
 
  // Import the functions you need from the SDKs you need
- import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
- import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
- import {getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-app.js";
+ import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-auth.js";
+ import {getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
  // TODO: Add SDKs for Firebase products that you want to use
  // https://firebase.google.com/docs/web/setup#available-libraries
- import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+ import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.1.0/firebase-firestore.js";
  setLogLevel("debug");
  // Your web app's Firebase configuration
  const firebaseConfig = {
-   "apiKey": "AIzaSyDjh1vEFk7FqW-wLaUE4pXowHf266_3W88",
-   "authDomain": "sia-2develo4.firebaseapp.com",
-   "projectId": "sia-2develo4",
-   "storageBucket": "sia-2develo4.firebasestorage.app",
-   "messagingSenderId": "853876043675",
-   "appId": "1:853876043675:web:58e9a688aeef18690f3b3e",
-   "databaseURL": "https://sia-2develo4-default-rtdb.firebaseio.com"
- };
+  apiKey: "AIzaSyAWIY7DKq9l7OeSdRldZUg2Br9nZyhkVDo",
+  authDomain: "sia2-firebase-a8b02.firebaseapp.com",
+  projectId: "sia2-firebase-a8b02",
+  storageBucket: "sia2-firebase-a8b02.firebasestorage.app",
+  messagingSenderId: "116171721073",
+  appId: "1:116171721073:web:3397202fdea7788cc24ed0"
+};
+
 
  // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 
 function showMessage(message, elementId) {
   var message = document.getElementById(elementId);
@@ -33,14 +32,13 @@ function showMessage(message, elementId) {
   
 }
 
-const signUp = document.getElementById("register");
+const signUp = document.getElementById("signup-form");
 signUp.addEventListener('click',(event)=>{
   event.preventDefault();
-  const fullname = document.getElementById("signUp-fullname").value;
-  const email = document.getElementById("signUp-email").value;
-  const phoneNumber = document.getElementById("signUp-phoneNumber").value; // Corrected this line
-  const password = document.getElementById("signUp-password").value;
-  const confirmPassword = document.getElementById("signUp-confirm-password").value;
+  const fullname = document.getElementById("signup-name").value;
+  const email = document.getElementById("signup-email").value;
+  const password = document.getElementById("signup-password").value;
+  const confirmPassword = document.getElementById("signup-confirm-password").value;
 
   const auth = getAuth();
   const db = getFirestore();
@@ -66,8 +64,6 @@ signUp.addEventListener('click',(event)=>{
     alert("Invalid phone number. Ensure it is numeric and the correct length.");
     return;
   }
-
-
 
   createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential)=>{
@@ -119,12 +115,6 @@ signIn.addEventListener('click',(event)=>{
     })
 
 })
-
-
-
-
-
-
 
 
 function validate_email(email) {
