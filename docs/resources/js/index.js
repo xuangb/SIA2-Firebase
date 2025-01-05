@@ -75,7 +75,7 @@ signUpForm.addEventListener('submit', (event) => {
       setDoc(docRef, userData)
         .then(() => {
           alert("Account Created Successfully");
-          window.location.href = "/userpage.html";
+          window.location.href = "SIA2-Firebase/userpage.html";
         })
         .catch((error) => {
           console.log("Error writing document", error);
@@ -106,7 +106,7 @@ signInForm.addEventListener('submit', (event) => {
       const user = userCredential.user;
       localStorage.setItem('loggedInUserId', user.uid);
       alert('Login is successful');  // Display success message
-      window.location.href = "/userpage.html";  // Ensure this path is correct
+      window.location.href = "SIA2-Firebase/userpage.html";  // Ensure this path is correct
     })
     .catch((error) => {
       console.error('Login failed', error.code, error.message);  // Enhanced error logging
