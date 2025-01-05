@@ -84,7 +84,7 @@ signUp.addEventListener('click',(event)=>{
     setDoc(docRef, userData)
     .then(()=>{
       alert("Account Created Successfully");
-      window.location.href = "/userpage.html";
+      window.location.href = "SIA2-Firebase/userpage.html";
     })
     .catch((error)=>{
       console.log("Error writing document",error);
@@ -103,6 +103,28 @@ signUp.addEventListener('click',(event)=>{
   
 
 })
+
+const signIn = document.getElementById("login");
+signIn.addEventListener('click',(event)=>{
+  event.preventDefault();
+  const email=document.getElementById("signIn-email").value;
+  const password=document.getElementById("signIn-email").value;
+  const auth = getAuth();
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential)=>{
+      showMessage('login is successful','signInMessage');
+      const user = userCredential.user;
+      localStorage.setItem('loggedInUserId', user.uid);
+    })
+
+})
+
+
+
+
+
+
 
 
 function validate_email(email) {
