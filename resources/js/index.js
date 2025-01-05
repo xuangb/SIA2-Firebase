@@ -75,7 +75,7 @@ signUpForm.addEventListener('submit', (event) => {
       setDoc(docRef, userData)
         .then(() => {
           alert("Account Created Successfully");
-          window.location.href = "SIA2-Firebase/userpage.html";
+          window.location.href = "/userpage.html";
         })
         .catch((error) => {
           console.log("Error writing document", error);
@@ -91,26 +91,29 @@ signUpForm.addEventListener('submit', (event) => {
     });
 });
 
-
 //HANDLE LOGIN
-// const signInForm = document.getElementById("login-form");
-// signInForm.addEventListener('submit', (event) => {
-//   event.preventDefault();
-//   const email = document.getElementById("login-email").value;
-//   const password = document.getElementById("login-password").value;
-//   const auth = getAuth();
+const signInForm = document.getElementById("login-form");
+signInForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const email = document.getElementById("login-email").value;
+  const password = document.getElementById("login-password").value;
+  const auth = getAuth();
 
-//   signInWithEmailAndPassword(auth, email, password)
-//     .then((userCredential) => {
-//       showMessage('Login is successful', 'signInMessage');
-//       const user = userCredential.user;
-//       localStorage.setItem('loggedInUserId', user.uid);
-//     })
-//     .catch((error) => {
-//       console.error('Login failed', error);
-//       showMessage('Login failed. Please check your credentials.', 'signInMessage');
-//     });
-// });
+  console.log("Attempting login with email:", email);  // Log the email for debugging
+
+  signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      showMessage('Login is successful', 'signInMessage');
+      const user = userCredential.user;
+      localStorage.setItem('loggedInUserId', user.uid);
+      window.location.href = "/userpage.html";  // Ensure this path is correct
+    })
+    .catch((error) => {
+      console.error('Login failed', error.code, error.message);  // Enhanced error logging
+      showMessage('Login failed. Please check your credentials.', 'signInMessage');
+    });
+});
+
 
 
 function validate_email(email) {
@@ -141,10 +144,10 @@ function validate_field(field) {
   return field != null && field.length > 0;
 }
 
-// Validate phone number
-function validate_phoneNumber(phoneNumber) {
-  const phoneRegex = /^[0-9]{10,15}$/; // Allows 10 to 15 digits
-  return phoneRegex.test(phoneNumber);
-}
+// // Validate phone number
+// function validate_phoneNumber(phoneNumber) {
+//   const phoneRegex = /^[0-9]{10,15}$/; // Allows 10 to 15 digits
+//   return phoneRegex.test(phoneNumber);
+// }
 
 
