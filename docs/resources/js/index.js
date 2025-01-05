@@ -103,14 +103,14 @@ signInForm.addEventListener('submit', (event) => {
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      alert('Login is successful', 'signInMessage');
       const user = userCredential.user;
       localStorage.setItem('loggedInUserId', user.uid);
+      alert('Login is successful');  // Display success message
       window.location.href = "/userpage.html";  // Ensure this path is correct
     })
     .catch((error) => {
       console.error('Login failed', error.code, error.message);  // Enhanced error logging
-      alert('Login failed. Please check your credentials.', 'signInMessage');
+      alert('Login failed. Please check your credentials.');  // Show a failure message
     });
 });
 
