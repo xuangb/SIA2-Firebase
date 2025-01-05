@@ -32,6 +32,7 @@ function showMessage(message, elementId) {
   
 }
 
+//HANDLE REGISTER
 const signUp = document.getElementById("signup-form");
 signUp.addEventListener('click',(event)=>{
   event.preventDefault();
@@ -71,7 +72,6 @@ signUp.addEventListener('click',(event)=>{
     const userData = {
       email: email,
       fullname: fullname,
-      phoneNumber: phoneNumber,
       last_login: Date.now(),
       role: "user",
     };
@@ -100,11 +100,12 @@ signUp.addEventListener('click',(event)=>{
 
 })
 
-const signIn = document.getElementById("login");
+//HANDLE LOGIN
+const signIn = document.getElementById("login-form");
 signIn.addEventListener('click',(event)=>{
   event.preventDefault();
-  const email=document.getElementById("signIn-email").value;
-  const password=document.getElementById("signIn-email").value;
+  const email=document.getElementById("login-email").value;
+  const password=document.getElementById("login-password").value;
   const auth = getAuth();
 
   signInWithEmailAndPassword(auth, email, password)
