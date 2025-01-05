@@ -21,16 +21,16 @@
  // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-function showMessage(message, elementId) {
-  var message = document.getElementById(elementId);
-  message.style.display='block'; 
-  message.innerHTML = message;
-  message.style.opacity = 1;
-  setTimeout(function(){
-    message.style.opacity = 0;
-  },5000);
+// function showMessage(message, elementId) {
+//   var message = document.getElementById(elementId);
+//   message.style.display='block'; 
+//   message.innerHTML = message;
+//   message.style.opacity = 1;
+//   setTimeout(function(){
+//     message.style.opacity = 0;
+//   },5000);
   
-}
+// }
 
 //HANDLE REGISTER
 const signUpForm = document.getElementById("signup-form");
@@ -84,9 +84,9 @@ signUpForm.addEventListener('submit', (event) => {
     .catch((error) => {
       const errorCode = error.code;
       if (errorCode == "auth/email-already-in-use") {
-        showMessage("Email Address Already Exists", 'signUpMessage');
+        alert("Email Address Already Exists", 'signUpMessage');
       } else {
-        showMessage("Unable to create user", "signUpMessage");
+        alert("Unable to create user", "signUpMessage");
       }
     });
 });
@@ -103,14 +103,14 @@ signInForm.addEventListener('submit', (event) => {
 
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      showMessage('Login is successful', 'signInMessage');
+      alert('Login is successful', 'signInMessage');
       const user = userCredential.user;
       localStorage.setItem('loggedInUserId', user.uid);
       window.location.href = "/userpage.html";  // Ensure this path is correct
     })
     .catch((error) => {
       console.error('Login failed', error.code, error.message);  // Enhanced error logging
-      showMessage('Login failed. Please check your credentials.', 'signInMessage');
+      alert('Login failed. Please check your credentials.', 'signInMessage');
     });
 });
 
