@@ -33,8 +33,8 @@ function showMessage(message, elementId) {
 }
 
 //HANDLE REGISTER
-const signUp = document.getElementById("signup-form");
-signUp.addEventListener('click',(event)=>{
+const signUpForm = document.getElementById("signup-form");
+signUpForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const fullname = document.getElementById("signup-name").value;
   const email = document.getElementById("signup-email").value;
@@ -61,61 +61,56 @@ signUp.addEventListener('click',(event)=>{
     return;
   }
 
-  if (!validate_phoneNumber(phoneNumber)) {
-    alert("Invalid phone number. Ensure it is numeric and the correct length.");
-    return;
-  }
-
   createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential)=>{
-    const user = userCredential.user;
-    const userData = {
-      email: email,
-      fullname: fullname,
-      last_login: Date.now(),
-      role: "user",
-    };
+    .then((userCredential) => {
+      const user = userCredential.user;
+      const userData = {
+        email: email,
+        fullname: fullname,
+        last_login: Date.now(),
+        role: "user",
+      };
 
-    const docRef = doc(db,"users", user.uid);
-    setDoc(docRef, userData)
-    .then(()=>{
-      alert("Account Created Successfully");
-      window.location.href = "SIA2-Firebase/userpage.html";
+      const docRef = doc(db, "users", user.uid);
+      setDoc(docRef, userData)
+        .then(() => {
+          alert("Account Created Successfully");
+          window.location.href = "SIA2-Firebase/userpage.html";
+        })
+        .catch((error) => {
+          console.log("Error writing document", error);
+        });
     })
-    .catch((error)=>{
-      console.log("Error writing document",error);
+    .catch((error) => {
+      const errorCode = error.code;
+      if (errorCode == "auth/email-already-in-use") {
+        showMessage("Email Address Already Exists", 'signUpMessage');
+      } else {
+        showMessage("Unable to create user", "signUpMessage");
+      }
     });
+});
 
-
-  })
-  .catch((error)=>{
-    const errorCode = error.code;
-    if(errorCode == "auth/email-already-in-use"){
-      showMessage("Email Address Already Exists", 'signUpMessage');
-    }else{
-      showMessage("Unable to create user", "signUpMessage");
-    }
-  })
-  
-
-})
 
 //HANDLE LOGIN
-const signIn = document.getElementById("login-form");
-signIn.addEventListener('click',(event)=>{
-  event.preventDefault();
-  const email=document.getElementById("login-email").value;
-  const password=document.getElementById("login-password").value;
-  const auth = getAuth();
+// const signInForm = document.getElementById("login-form");
+// signInForm.addEventListener('submit', (event) => {
+//   event.preventDefault();
+//   const email = document.getElementById("login-email").value;
+//   const password = document.getElementById("login-password").value;
+//   const auth = getAuth();
 
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential)=>{
-      showMessage('login is successful','signInMessage');
-      const user = userCredential.user;
-      localStorage.setItem('loggedInUserId', user.uid);
-    })
-
-})
+//   signInWithEmailAndPassword(auth, email, password)
+//     .then((userCredential) => {
+//       showMessage('Login is successful', 'signInMessage');
+//       const user = userCredential.user;
+//       localStorage.setItem('loggedInUserId', user.uid);
+//     })
+//     .catch((error) => {
+//       console.error('Login failed', error);
+//       showMessage('Login failed. Please check your credentials.', 'signInMessage');
+//     });
+// });
 
 
 function validate_email(email) {
